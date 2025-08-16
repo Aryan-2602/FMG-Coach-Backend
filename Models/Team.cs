@@ -72,18 +72,33 @@ public class Team
     public string? db2 { get; set; }
 
     [Column("budget")]
-    public required float budget { get; set; }
+    public float budget { get; set; }
 
     [Column("offence_rating")]
-    public required float offenceRating { get; set; }
+    public float offenceRating { get; set; }
 
     [Column("defence_rating")]
-    public required float defenceRating { get; set; }
+    public float defenceRating { get; set; }
 
     [Column("special_teams_rating")]
-    public required float specialTeamsRating { get; set; }
+    public float specialTeamsRating { get; set; }
 
     [Column("overall_rating")]
-    public required float overallRating { get; set; }
+    public float overallRating { get; set; }
+
+    [Column("games_played")]
+    public int gamesPlayed { get; set; }
+
+    [Column("games_won")]
+    public int gamesWon { get; set; }
+
+    [Column("games_lost")]
+    public int gamesLost { get; set; }
+
+    // public Team(string teamId, string teamName)
+    // {
+    //     this.teamId = teamId;
+    //     this.teamName = teamName;
+    // }
 
 }

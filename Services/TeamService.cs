@@ -20,4 +20,21 @@ public class TeamService
 
         return team;
     }
+
+    public async Task<Team> CreateTeam(TeamAddRequest request)
+    {
+        if (request == null)
+        {
+            throw new ArgumentNullException(nameof(request), "request cannot be null");
+        }
+
+        string sql = "INSERT INTO Team (team_id, team_name) VALUES (@p0, @p1)";
+        await _db.Database.ExecuteSqlRawAsync(sql, request.teamId, request.teamName);
+
+        await _db.SaveChangesAsync();
+
+        var team = await GetTeamById(request.teamId);
+
+        return team;
+    }
 }
